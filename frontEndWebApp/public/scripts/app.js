@@ -4,7 +4,7 @@
 
 var fetchData=()=>{
     // alert("button is clicked.....");
-     let url="http://localhost:8000/api/products";
+     let url="http://localhost:7000/api/products";
      //use Ajax mechanism to fetch data from  rest api
      //it is inbuilt function of jQuery Library
      $.ajax({
@@ -37,7 +37,7 @@ var fetchData=()=>{
      let apiError;
      let result;
  
-     fetch("//localhost:8000/api/products/2", {
+     fetch("//localhost:7000/api/products/2", {
          // NEW - add a Content-Type header
          headers: {
            "Content-Type": "application/json"
@@ -61,7 +61,7 @@ var fetchData=()=>{
      let credential={};
      credential.email=email;
      credential.password=password;
-     let loginUrl="http://localhost:8000/api/login";
+     let loginUrl="http://localhost:7000/api/login";
      $.ajax({
          url: loginUrl,
          type:"POST",
@@ -80,7 +80,7 @@ var fetchData=()=>{
      let result;
      let token= localStorage.getItem("receivedtoken");
      console.log(token);
-     fetch("//localhost:8000/api/orders", {
+     fetch("//localhost:7000/api/orders", {
          headers: {
            "Content-Type": "application/json",
            "Authorization":token
