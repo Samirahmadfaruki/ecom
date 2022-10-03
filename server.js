@@ -9,6 +9,8 @@ const PORT = 7000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.set("view engine", "ejs");
+
 var sessionMiddlware = expressSession({
   secret: "cart",
   saveUninitialized: true,
