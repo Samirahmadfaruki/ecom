@@ -1,15 +1,15 @@
 const dal = require("../model/vendorDal");
 
 exports.getAll = async (req, res) => {
-  let data = [];
-  data = await dal.getAllVendors();
-  res.send(data);
+  let result = [];
+  result = await dal.getAllVendors();
+  res.send(result);
 };
 
 exports.getById = async (req, res) => {
-  let data = [];
-  data = await dal.getById(req.params.id);
-  res.send(data);
+  let result = [];
+  result = await dal.getById(req.params.id);
+  res.send(result);
 };
 
 exports.update = async (req, res) => {

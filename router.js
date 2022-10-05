@@ -1,16 +1,16 @@
 const customerController = require("./controllers/customercontroller");
 const productController = require("./controllers/productcontroller");
 const authController = require("./controllers/authcontroller");
-// const sellerController = require("./controllers/sellercontroller");
-// const staffController = require("./controllers/staffcontroller");
-// const ordersController = require("./controllers/orderscontroller");
-// const ordersDataController = require("./controllers/ordersdatacontroller");
+const sellerController = require("./controllers/sellercontroller");
+const staffController = require("./controllers/staffcontroller");
+const ordersController = require("./controllers/orderscontroller");
+const ordersDataController = require("./controllers/ordersdatacontroller");
 // const paymentsController = require("./controllers/paymentscontroller");
-// const feedbackController = require("./controllers/feedbackcontroller");
-// const vendorController = require("./controllers/vendorcontroller");
-// const deliveryController = require("./controllers/deliverycontroller");
-// const cartController = require("./controllers/cartcontroller");
-// const dashboardController = require("./controllers/dashboardControllers/dashboardcontroller");
+const feedbackController = require("./controllers/feedbackcontroller");
+const vendorController = require("./controllers/vendorcontroller");
+const deliveryController = require("./controllers/deliverycontroller");
+const cartController = require("./controllers/cartcontroller");
+const dashboardController = require("./controllers/dashboardControllers/dashboardcontroller");
 
 module.exports = function (app) {
   // Customer Authentication
@@ -53,41 +53,41 @@ module.exports = function (app) {
   //   .put(authController.verifyjwttoken, customerController.updatePassword);
 
   // // Seller
-  // app.route("/api/seller").get(sellerController.getAll);
-  // app
-  //   .route("/api/seller/:id")
-  //   .get(sellerController.getById)
-  //   .delete(sellerController.remove)
-  //   .put(sellerController.update);
+  app.route("/api/seller").get(sellerController.getAll);
+  app
+    .route("/api/seller/:id")
+    .get(sellerController.getById)
+    .delete(sellerController.remove)
+    .put(sellerController.update);
 
   // // Staff
-  // app.route("/api/staff").get(staffController.getAll);
-  // app
-  //   .route("/api/staff/:id")
-  //   .get(staffController.getById)
-  //   .delete(staffController.remove)
-  //   .put(staffController.update);
+  app.route("/api/staff").get(staffController.getAll);
+  app
+    .route("/api/staff/:id")
+    .get(staffController.getById)
+    .delete(staffController.remove)
+    .put(staffController.update);
 
   // // Orders
-  // app.route("/api/orders").get(ordersController.getAll);
-  // app
-  //   .route("/api/orders/:id")
-  //   .get(ordersController.getById)
-  //   .delete(ordersController.remove)
-  //   .put(ordersController.update);
+  app.route("/api/orders").get(ordersController.getAll);
+  app
+    .route("/api/orders/:id")
+    .get(ordersController.getById)
+    .delete(ordersController.remove)
+    .put(ordersController.update);
 
   // app.route("/api/orders/placeorder").post(ordersController.placeOrder);
 
   // // Orders_data
-  // app
-  //   .route("/api/ordersdata")
-  //   .get(ordersDataController.getAll)
-  //   .post(ordersDataController.insert);
-  // app
-  //   .route("/api/ordersdata/:id")
-  //   .get(ordersDataController.getById)
-  //   .delete(ordersDataController.remove)
-  //   .put(ordersDataController.update);
+  app
+    .route("/api/ordersdata")
+    .get(ordersDataController.getAll)
+    .post(ordersDataController.insert);
+  app
+    .route("/api/ordersdata/:id")
+    .get(ordersDataController.getById)
+    .delete(ordersDataController.remove)
+    .put(ordersDataController.update);
 
   // // Payments
   // app
@@ -101,75 +101,75 @@ module.exports = function (app) {
   //   .put(paymentsController.update);
 
   // // Feedback
-  // app
-  //   .route("/api/feedback")
-  //   .get(feedbackController.getAll)
-  //   .post(feedbackController.insert);
-  // app
-  //   .route("/api/feedback/:id")
-  //   .get(feedbackController.getById)
-  //   .delete(feedbackController.remove)
-  //   .put(feedbackController.update);
+  app
+    .route("/api/feedback")
+    .get(feedbackController.getAll)
+    .post(feedbackController.insert);
+  app
+    .route("/api/feedback/:id")
+    .get(feedbackController.getById)
+    .delete(feedbackController.remove)
+    .put(feedbackController.update);
 
-  // // Vendor
-  // app.route("/api/vendor").get(vendorController.getAll);
-  // app
-  //   .route("/api/vendor/:id")
-  //   .get(vendorController.getById)
-  //   .delete(vendorController.remove)
-  //   .put(vendorController.update);
+  // Vendor
+  app.route("/api/vendor").get(vendorController.getAll);
+  app
+    .route("/api/vendor/:id")
+    .get(vendorController.getById)
+    .delete(vendorController.remove)
+    .put(vendorController.update);
 
-  // // Delivery
-  // app
-  //   .route("/api/delivery")
-  //   .get(deliveryController.getAll)
-  //   .post(deliveryController.insert);
-  // app
-  //   .route("/api/delivery/:id")
-  //   .get(deliveryController.getById)
-  //   .delete(deliveryController.remove)
-  //   .put(deliveryController.update);
+  // Delivery
+  app
+    .route("/api/delivery")
+    .get(deliveryController.getAll)
+    .post(deliveryController.insert);
+  app
+    .route("/api/delivery/:id")
+    .get(deliveryController.getById)
+    .delete(deliveryController.remove)
+    .put(deliveryController.update);
 
-  // // Shopping Cart
-  // app.route("/api/cart").get(cartController.getAll);
-  // app.route("/api/cart/add").post(cartController.addToCart);
-  // app.route("/api/cart/remove/:id").delete(cartController.removeFromCart);
-  // app
-  //   .route("/api/checkout")
+  // Shopping Cart
+  app.route("/api/cart").get(cartController.getAll);
+  app.route("/api/cart/add").post(cartController.addToCart);
+  app.route("/api/cart/remove/:id").delete(cartController.removeFromCart);
+  app
+    .route("/api/checkout")
 
-  //   .get(cartController.checkout);
+    .get(cartController.checkout);
 
   // // JWT
 
   // app.route("/api/test/jwt").get(authController.verifyjwttoken);
 
-  // // Dashboard APIs
-  // app.route("/api/dashboard/orderlist").get(dashboardController.getOrderList); // get orders list
-  // app
-  //   .route("/api/dashboard/availableproducts")
-  //   .get(dashboardController.getAvailableProducts); // get all available products
-  // app
-  //   .route("/api/dashboard/unavailableproducts")
-  //   .get(dashboardController.getZeroProductAvailable); // get unavailable products
-  // app
-  //   .route("/api/dashboard/categorylist")
-  //   .get(dashboardController.getCategoryList); // list categories
-  // app
-  //   .route("/api/dashboard/customerprofile/:id")
-  //   .get(dashboardController.getCustomerProfile); // get customer's information including orders,payaments,etc
-  // app
-  //   .route("/api/dashboard/sellerprofile")
-  //   .get(dashboardController.getSellerProfile); // get seller's personal information
+  // Dashboard APIs
+  app.route("/api/dashboard/orderlist").get(dashboardController.getOrderList); // get orders list
+  app
+    .route("/api/dashboard/availableproducts")
+    .get(dashboardController.getAvailableProducts); // get all available products
+  app
+    .route("/api/dashboard/unavailableproducts")
+    .get(dashboardController.getZeroProductAvailable); // get unavailable products
+  app
+    .route("/api/dashboard/categorylist")
+    .get(dashboardController.getCategoryList); // list categories
+  app
+    .route("/api/dashboard/customerprofile/:id")
+    .get(dashboardController.getCustomerProfile); // get customer's information including orders,payaments,etc
+  app
+    .route("/api/dashboard/sellerprofile")
+    .get(dashboardController.getSellerProfile); // get seller's personal information
 
-  // app
-  //   .route("/api/dashboard/sellerproducts/:id")
-  //   .get(dashboardController.getSellerProducts); // get all sellers products
+  app
+    .route("/api/dashboard/sellerproducts/:id")
+    .get(dashboardController.getSellerProducts); // get all sellers products
 
-  // app
-  //   .route("/api/dashboard/sellerorders/:id")
-  //   .get(dashboardController.getSellerOrders); // get all sellers sold products
+  app
+    .route("/api/dashboard/sellerorders/:id")
+    .get(dashboardController.getSellerOrders); // get all sellers sold products
 
-  // app
-  //   .route("/api/dashboard/vendorprofile")
-  //   .get(dashboardController.getVendorsInfo); // get vendor's personal information
+  app
+    .route("/api/dashboard/vendorprofile")
+    .get(dashboardController.getVendorsInfo); // get vendor's personal information
 };

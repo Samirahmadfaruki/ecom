@@ -1,6 +1,6 @@
 const sql = require("./db");
 
-exports.getAllvendors = function () {
+exports.getAllVendors = function () {
   return new Promise((resolve) => {
     let command = "SELECT * FROM vendors";
     sql.query(command, (err, rows, field) => {

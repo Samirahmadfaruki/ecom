@@ -1,15 +1,15 @@
 const dal = require("../model/sellersDal");
 
 exports.getAll = async (req, res) => {
-  let data = [];
-  data = await dal.getAllSellers();
-  res.send(data);
+  let result = [];
+  result = await dal.getAllSellers();
+  res.send(result);
 };
 
 exports.getById = async (req, res) => {
-  let data = [];
-  data = await dal.getById(req.params.id);
-  res.send(data);
+  let result = [];
+  result = await dal.getById(req.params.id);
+  res.send(result);
 };
 
 exports.update = async (req, res) => {
