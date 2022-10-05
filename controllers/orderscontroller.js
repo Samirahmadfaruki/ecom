@@ -1,15 +1,15 @@
 const dal = require("../model/ordersDal");
 
 exports.getAll = async (req, res) => {
-  let data = [];
-  data = await dal.getAllOrders();
-  res.send(data);
+  let result = [];
+  result = await dal.getAllOrders();
+  res.send(result);
 };
 
 exports.getById = async (req, res) => {
-  let data = [];
-  data = await dal.getById(req.params.id);
-  res.send(data);
+  let result = [];
+  result = await dal.getById(req.params.id);
+  res.send(result);
 };
 
 exports.placeOrder = async (req, res) => {

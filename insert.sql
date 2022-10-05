@@ -11,12 +11,12 @@ INSERT INTO customers(
         created_at
     )
 values(
-        "Shravan",
+        "saif",
         "Patel",
-        "shravan@gmail.com",
+        "saif@gmail.com",
         "7726378278",
         "sp@123",
-        "Jaipur, Rajasthan",
+        "saipur, Rajasthan",
         "2022-02-10",
         "2021-09-26"
     );
@@ -32,12 +32,12 @@ INSERT INTO customers(
         created_at
     )
 values(
-        "Ganesh",
-        "Patel",
-        "ganesh@gmail.com",
-        "7726378287",
+        "sam",
+        "ahmada",
+        "samir@gmail.com",
+        "7287",
         "gp@123",
-        "Sirohi, Rajasthan",
+        "gopal, bihar",
         "2022-02-10",
         "2021-09-26"
     );
