@@ -1,31 +1,37 @@
-const dal = require("../model/ordersDataDal");
+//Controller
+export default class OrdersdataController {
+  //constructor Dependency Injection
+  constructor(mgr) {
+    this.repoManager = mgr;
+  }
 
-exports.getAll = async (req, res) => {
-  let data = [];
-  data = await dal.getAllOrdersData();
-  res.send(data);
-};
+  get = async (req, res) => {
+    console.log("Fetching All OrdersData");
+    let allOrdersdata = await this.repoManager.getAll();
+    res.send(allOrdersdata.data);
+  };
 
-exports.getById = async (req, res) => {
-  let data = [];
-  data = await dal.getById(req.params.id);
-  res.send(data);
-};
+  getById = async (req, res) => {
+    console.log("Fetching All Ordersdata By Id");
+    let customer = await this.repoManager.getById(req.params.id);
+    res.send(customer.data);
+  };
 
-exports.insert = async (req, res) => {
-  let result = [];
-  result = await dal.insert(req);
-  res.send(result);
-};
+  update = async (req, res) => {
+    console.log("updating a Ordersdata ");
+    let result = await this.repoManager.update(req.params.id, req.body);
+    res.send(result.data);
+  };
 
-exports.update = async (req, res) => {
-  let result = [];
-  result = await dal.update(req.params.id, req.body);
-  res.send(result);
-};
+  post = async (req, res) => {
+    console.log("Adding a Ordersdata");
+    let result = await this.repoManager.post(req);
+    res.send(result.data);
+  };
 
-exports.remove = async (req, res) => {
-  let result = [];
-  result = await dal.remove(req.params.id);
-  res.send(result);
-};
+  delete = async (req, res) => {
+    console.log("deleting a ordersdata");
+    let result = await this.repoManager.delete(req.params.id);
+    res.send(result.data);
+  };
+}

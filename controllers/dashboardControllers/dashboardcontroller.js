@@ -1,61 +1,55 @@
-const dal = require("../../model/dashboardDal/dashboard");
+//Controller
+export default class DashboardController {
+  //constructor Dependency Injection
+  constructor(mgr) {
+    this.repoManager = mgr;
+  }
 
-exports.getOrderList = async (req, res) => {
-  let data = [];
-  data = await dal.getOrderList();
-  res.send(data);
-};
+  getOrderList = async (req, res) => {
+    console.log("Fetching All OrdersList");
+    let allOrders = await this.repoManager.getOrderList();
+    res.send(allOrders.data);
+  };
 
-exports.getAvailableProducts = async (req, res) => {
-  let data = [];
-  data = await dal.getTotalAvailableProducts();
-  res.send(data);
-};
+  getAvailableProducts = async (req, res) => {
+    console.log("Fetching All Available Products");
+    let result = await this.repoManager.getAvailableProducts();
+    res.send(result.data);
+  };
 
-exports.getZeroProductAvailable = async (req, res) => {
-  let data = [];
-  data = await dal.getZeroAvailableProducts();
-  res.send(data);
-};
+  getZeroAvailableProducts = async (req, res) => {
+    console.log("Fetching Unavailable Products");
+    let result = await this.repoManager.getZeroAvailableProducts();
+    res.send(result.data);
+  };
 
-exports.getCategoryList = async (req, res) => {
-  let data = [];
-  data = await dal.getCategoryList();
-  res.send(data);
-};
+  getCategoryList = async (req, res) => {
+    console.log("Fetching Category List");
+    let result = await this.repoManager.getCategoryList();
+    res.send(result.data);
+  };
 
-exports.getCustomerProfile = async (req, res) => {
-  let data = [];
-  data = await dal.getCustomerPersonalProfile(req.params.id);
-  res.send(data);
-};
+  getCustomerProfile = async (req, res) => {
+    console.log("Fetching Customer Profile");
+    let result = await this.repoManager.getCustomerProfile();
+    res.send(result.data);
+  };
 
-exports.getSellerProfile = async (req, res) => {
-  let data = [];
-  data = await dal.getSellerPersonalInfo();
-  res.send(data);
-};
+  getSellerProfile = async (req, res) => {
+    console.log("Fetching Seller Profile");
+    let result = await this.repoManager.getSellerProfile();
+    res.send(result.data);
+  };
 
-exports.getSellerProducts = async (req, res) => {
-  let data = [];
-  data = await dal.getSellerProducts(req.params.id);
-  res.send(data);
-};
+  getSellerOrders = async (req, res) => {
+    console.log("Fetching Seller Orders");
+    let result = await this.repoManager.getSellerOrders();
+    res.send(result.data);
+  };
 
-exports.getSellerOrders = async (req, res) => {
-  let data = [];
-  data = await dal.getSellerOrders(req.params.id);
-  res.send(data);
-};
-
-exports.getStaffInfo = async (req, res) => {
-  let data = [];
-  data = await dal.getStaffPersonalInfo();
-  res.send(data);
-};
-
-exports.getVendorsInfo = async (req, res) => {
-  let data = [];
-  data = await dal.getVendorPersonalInfo();
-  res.send(data);
-};
+  getSellerProducts = async (req, res) => {
+    console.log("Fetching Seller Profile");
+    let result = await this.repoManager.getSellerProducts();
+    res.send(result.data);
+  };
+}

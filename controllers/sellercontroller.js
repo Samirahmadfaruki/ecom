@@ -1,25 +1,31 @@
-const dal = require("../model/sellersDal");
+//Controller
+export default class SellerController {
+  //constructor Dependency Injection
+  constructor(mgr) {
+    this.repoManager = mgr;
+  }
 
-exports.getAll = async (req, res) => {
-  let result = [];
-  result = await dal.getAllSellers();
-  res.send(result);
-};
+  get = async (req, res) => {
+    console.log("Fetching All Sellers");
+    let allSellers = await this.repoManager.getAll();
+    res.send(allSellers.data);
+  };
 
-exports.getById = async (req, res) => {
-  let result = [];
-  result = await dal.getById(req.params.id);
-  res.send(result);
-};
+  getById = async (req, res) => {
+    console.log("Fetching All sellers By Id");
+    let customer = await this.repoManager.getById(req.params.id);
+    res.send(customer.data);
+  };
 
-exports.update = async (req, res) => {
-  let result = [];
-  result = await dal.update(req.params.id, req.body);
-  res.send(result);
-};
+  update = async (req, res) => {
+    console.log("updating a seller");
+    let result = await this.repoManager.update(req.params.id, req.body);
+    res.send(result.data);
+  };
 
-exports.remove = async (req, res) => {
-  let result = [];
-  result = await dal.remove(req.params.id);
-  res.send(result);
-};
+  updatePassword = async (req, res) => {
+    console.log("updating seller's password");
+    let result = await this.repoManager.updatePassword(req.params.id, req.body);
+    res.send(result.data);
+  };
+}

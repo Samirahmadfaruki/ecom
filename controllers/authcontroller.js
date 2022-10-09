@@ -1,53 +1,101 @@
-const dal = require("../model/authDal");
+import config from "../config.js";
+import jwt from "jsonwebtoken";
 
-// Customers
-exports.customer_login = async (req, res) => {
-  let data = [];
-  data = await dal.customer_login(req);
-  res.send(data);
-};
+export default class AuthController {
+  //constructor Dependency Injection
+  constructor(mgr) {
+    this.repoManager = mgr;
+  }
 
-exports.customer_register = async (req, res) => {
-  let data = [];
-  data = await dal.customer_register(req);
-  res.send(data);
-};
+  //   Customers Authentication
+  customerLogin = async (req, res) => {
+    console.log("Customer Login");
+    let result = await this.repoManager.customerLogin(req);
+    res.send(result.data);
+  };
 
-// Seller
-exports.seller_login = async (req, res) => {
-  let data = [];
-  data = await dal.seller_login(req);
-  res.send(data);
-};
+  customerRegister = async (req, res) => {
+    console.log("Customer Login");
+    let result = await this.repoManager.customerRegister(req);
+    res.send(result.data);
+  };
 
-exports.seller_register = async (req, res) => {
-  let data = [];
-  data = await dal.seller_register(req);
-  res.send(data);
-};
+  updateCustomerPassword = async (req, res) => {
+    console.log("Update Customer Password");
+    let result = await this.repoManager.updateCustomerPassword(req);
+    res.send(result.data);
+  };
+  // Sellers Authentication
 
-// Staff
-exports.staff_login = async (req, res) => {
-  let data = [];
-  data = await dal.staff_login(req);
-  res.send(data);
-};
+  sellerLogin = async (req, res) => {
+    console.log("seller Login");
+    let result = await this.repoManager.sellerLogin(req);
+    res.send(result.data);
+  };
 
-exports.staff_register = async (req, res) => {
-  let data = [];
-  data = await dal.staff_register(req);
-  res.send(data);
-};
+  sellerRegister = async (req, res) => {
+    console.log("seller Login");
+    let result = await this.repoManager.sellerRegister(req);
+    res.send(result.data);
+  };
 
-// vendors
-exports.vendors_login = async (req, res) => {
-  let data = [];
-  data = await dal.vendors_login(req);
-  res.send(data);
-};
+  updateSellerPassword = async (req, res) => {
+    console.log("Update Seller Password");
+    let result = await this.repoManager.updateSellerPassword(req);
+    res.send(result.data);
+  };
 
-exports.vendors_register = async (req, res) => {
-  let data = [];
-  data = await dal.vendors_register(req);
-  res.send(data);
-};
+  //   Vendor Authentication
+
+  vendorLogin = async (req, res) => {
+    console.log("vendor Login");
+    let result = await this.repoManager.vendorLogin(req);
+    res.send(result.data);
+  };
+
+  vendorRegister = async (req, res) => {
+    console.log("vendor Login");
+    let result = await this.repoManager.vendorRegister(req);
+    res.send(result.data);
+  };
+
+  updateVendorPassword = async (req, res) => {
+    console.log("Update Vendor Password");
+    let result = await this.repoManager.updateVendorPassword(req);
+    res.send(result.data);
+  };
+
+  //   Staff Authentication
+
+  staffLogin = async (req, res) => {
+    console.log("staff Login");
+    let result = await this.repoManager.staffLogin(req);
+    res.send(result.data);
+  };
+
+  staffRegister = async (req, res) => {
+    console.log("staff Login");
+    let result = await this.repoManager.staffRegister(req);
+    res.send(result.data);
+  };
+
+  updateStaffPassword = async (req, res) => {
+    console.log("Update Staff Password");
+    let result = await this.repoManager.updateStaffPassword(req);
+    res.send(result.data);
+  };
+
+  // JWT VERIFY FUNCTION
+  verifyjwttoken = (req, res, next) => {
+    const token = req.headers["authorization"];
+    if (!token) return res.status(401).json("Unauthorize user");
+    try {
+      const decoded = jwt.verify(token, config.jwtSecretKey);
+      req.user = decoded;
+      console.log("Validation Successful");
+      next();
+    } catch (e) {
+      res.status(400).json("Token not valid");
+    }
+  };
+}
