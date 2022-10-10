@@ -110,3 +110,36 @@ CREATE TABLE staffs(
     created_at DATETIME,
     modified_at DATETIME
 );
+
+
+
+CREATE TABLE users(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    email varchar(50) NOT NULL,
+    password varchar(6) NOT NULL,
+    user_type ENUM ('customer', 'seller', 'staff', 'vendor')
+);
+
+
+ 
+ CREATE TABLE accounts (
+    account_number VARCHAR(50) PRIMARY KEY,
+    user_id INT,
+    balance float NOT NULL,
+    created_at DATETIME,
+    modified_at DATETIME,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+);
+ 
+ 
+ 
+ 
+ CREATE TABLE transactions (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    from_account VARCHAR(50),
+    to_account VARCHAR(50),
+    amount FLOAT DEFAULT 0,
+    created_at DATETIME,
+    FOREIGN KEY(from_account) REFERENCES accounts(account_number),
+    FOREIGN KEY(to_account) REFERENCES accounts(account_number)
+);
