@@ -41,7 +41,7 @@ export default class AuthService {
           });
           userData.token = token;
           console.log("Login Successful:", userData);
-          resolve({ message: "Login Success" });
+          resolve({ message: "Login Success", userData });
         } else {
           resolve({ error: "Invalid User" });
         }
@@ -53,9 +53,9 @@ export default class AuthService {
     return new Promise((resolve) => {
       let data = req.body;
       let timeStamp = new Date().toISOString().slice(0, 19).replace("T", " ");
-      let command = `INSERT INTO ${this.userModel.table_name}(email,password,user_type) VALUES ("${data.email}","${data.password}","customer");
-      SET @userId = LAST_INSERT_ID();
-      INSERT INTO ${this.customerModel.table_name}(user_id,firstname,lastname,contact_no, location, created_at, modified_at) values(@userId,"${data.firstname}","${data.lastname}","${data.contact_no}","${data.location}","${timeStamp}","${timeStamp}");`;
+      // INSERT INTO ${this.userModel.table_name}(email,password,user_type) VALUES ("${data.email}","${data.password}","customer");
+      // SET @userId = LAST_INSERT_ID()
+      let command = `INSERT INTO ${this.customerModel.table_name}(id,firstname,lastname,email,password,contact_no, location, created_at, modified_at) values(@userId,"${data.firstname}","${data.lastname}", "${data.email}", "${data.password}","${data.contact_no}","${data.location}","${timeStamp}","${timeStamp}");`;
       sql.query(command, (err, rows, fields) => {
         if (err) {
           console.log(err);

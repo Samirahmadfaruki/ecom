@@ -1,5 +1,6 @@
-// import jwtto
 import jwt from "jsonwebtoken";
+import config from "../config.js";
+
 
 export default class AuthController {
   //constructor Dependency Injection
@@ -11,13 +12,13 @@ export default class AuthController {
   customerLogin = async (req, res) => {
     console.log("Customer Login");
     let result = await this.repoManager.customerLogin(req);
-    res.send(result.data);
+    res.send(result);
   };
 
   customerRegister = async (req, res) => {
-    console.log("Customer Login");
-    let result = await this.repoManager.customerRegister(req);
-    res.send(result.data);
+    console.log("Customer Login Test");
+    let result = await this.repoManager.customerRegister(req); //{}
+    res.send(result);
   };
 
   updateCustomerPassword = async (req, res) => {
@@ -87,7 +88,7 @@ export default class AuthController {
 
   // JWT VERIFY FUNCTION
   verifyjwttoken = (req, res, next) => {
-    const token = req.headers["authorization"];
+    const token = req.headers["authorization"].split(' ')[1];
     if (!token) return res.status(401).json("Unauthorize user");
     try {
       const decoded = jwt.verify(token, config.jwtSecretKey);
@@ -95,7 +96,7 @@ export default class AuthController {
       console.log("Validation Successful");
       next();
     } catch (e) {
-      res.status(400).json("Token not valid");
+      res.status(400).json({message: e.message});
     }
   };
 }

@@ -10,7 +10,7 @@ export default function (app) {
   let authcontroller = new AuthController(authtomermgr);
 
   //Map controller callback functions for rest API routes
-  app.get("/api/customer", controller.get);
+  app.get("/api/customer", authcontroller.verifyjwttoken, controller.get);
   app.get("/api/customer/:id", controller.getById);
   app.put("/api/customer/:id", controller.update);
 
