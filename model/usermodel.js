@@ -1,19 +1,18 @@
-export default class Transactions {
-    //Parameterized constructor
-    constructor(id, from_account, to_account, amount, created_at) {
-      this.id = id;
-      this.from_account = from_account;
-      this.to_account = to_account;
-      this.amount = amount;
-      this.created_at = created_at;
-  
-      this.table_name = "transactions";
-    }
-  
-    display() {
-      console.log(`Account Number= ${this.id}`);
-      console.log(`From Account= ${this.from_account}`);
-      console.log(`To Account= ${this.to_account}`);
-      console.log(`Amount= ${this.amount}`);
-    }
+export default class Auth {
+  //Parameterized constructor
+  constructor(id, email, password, user_type) {
+    this.id = id;
+    this.email = email;
+    this.password = password;
+    this.user_type = user_type;
+
+    this.table_name = "users";
   }
+
+  display() {
+    console.log(`Id= ${this.id}`);
+    console.log(`Email= ${this.email}`);
+    console.log(`Password= ${this.password}`);
+    console.log(`User Type= ${this.user_type}`);
+  }
+}

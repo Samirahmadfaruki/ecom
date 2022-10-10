@@ -1,5 +1,5 @@
-import DashboardController from "../controllers/dashboardControllers/dashboard.controller.js";
-import DashboardService from "../services/dashboard.service.js";
+import DashboardController from "../controllers/dashboardControllers/dashboardcontroller.js";
+import DashboardService from "../services/dashboardservice.js";
 
 export default function (app) {
   let dashboardmgr = new DashboardService();

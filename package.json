@@ -1,21 +1,22 @@
 {
-    "name": "webserver",
+    "name": "ecommerce-app",
     "version": "1.0.0",
-    "description": "This is simple Front End node js web server app for hosting static resources",
-    "main": "server.js",
+    "description": "an ecommerce app",
+    "main": "index.js",
+    "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
+      "test": "echo \"Error: no test specified\" && exit 1"
     },
+    "keywords": [],
     "author": "samir",
     "license": "ISC",
     "dependencies": {
-        "cookie-parser": "^1.4.6",
-        "cors": "^2.8.5",
-        "ejs": "^3.1.8",
-        "express": "^4.18.1",
-        "express-session": "^1.17.3",
-        "jsonwebtoken": "^8.5.1",
-        "my-sql": "^1.2.15"
+      "cookie-parser": "^1.4.6",
+      "cors": "^2.8.5",
+      "ejs": "^3.1.8",
+      "express": "^4.18.1",
+      "express-session": "^1.17.3",
+      "jsonwebtoken": "^8.5.1",
+      "my-sql": "^1.2.15"
     }
-}
+  }

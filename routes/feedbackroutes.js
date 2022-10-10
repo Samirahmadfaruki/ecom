@@ -1,5 +1,5 @@
-import FeedbackController from "../controllers/feedback.controller.js";
-import FeedbacksService from "../services/feedback.service.js";
+import FeedbackController from "../controllers/feedbackcontroller.js";
+import FeedbacksService from "../services/feedbackservice.js";
 
 export default function (app) {
   let mgr = new FeedbacksService();

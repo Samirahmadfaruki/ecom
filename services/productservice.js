@@ -1,4 +1,4 @@
-import Product from "../model/product.model.js";
+import Product from "../model/productsDal.js";
 import sql from "./db/db.js";
 
 export default class ProductService {

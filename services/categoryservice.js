@@ -1,4 +1,4 @@
-import Category from "../model/category.model.js";
+import Category from "../model/categorytdal.js";
 import sql from "./db/db.js";
 
 export default class CategoryService {

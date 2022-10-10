@@ -1,5 +1,5 @@
-import AccountController from "../controllers/account.controller.js";
-import AccountsService from "../services/account.service.js";
+import AccountController from "../controllers/accountcontroller.js";
+import AccountsService from "../services/accountservice.js";
 
 export default function (app) {
   let mgr = new AccountsService();

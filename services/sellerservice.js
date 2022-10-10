@@ -1,4 +1,4 @@
-import Seller from "../model/seller.model.js";
+import Seller from "../model/sellersDal.js";
 import sql from "./db/db.js";
 
 export default class SellerService {

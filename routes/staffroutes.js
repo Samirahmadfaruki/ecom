@@ -1,7 +1,7 @@
-import StaffController from "../controllers/staff.controller.js";
-import AuthController from "../controllers/auth.controller.js";
-import StaffService from "../services/staff.service.js";
-import AuthService from "../services/auth.service.js";
+import StaffController from "../controllers/staffcontroller.js";
+import AuthController from "../controllers/authcontroller.js";
+import StaffService from "../services/staffservice.js";
+import AuthService from "../services/authservice.js";
 
 export default function (app) {
   let staffmgr = new StaffService();

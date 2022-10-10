@@ -1,13 +1,21 @@
-import ProductController from "../controllers/product.controller.js";
-import ProductService from "../services/product.service.js";
+import SellerController from "../controllers/sellercontroller.js";
+import AuthController from "../controllers/authcontroller.js";
+import SellerService from "../services/sellerservice.js";
+import AuthService from "../services/authservice.js";
 
 export default function (app) {
-  let mgr = new ProductService();
-  let controller = new ProductController(mgr);
+  let sellermgr = new SellerService();
+  let authmgr = new AuthService();
+  let controller = new SellerController(sellermgr);
+  let authcontroller = new AuthController(authmgr);
+
   //Map controller callback functions for rest API routes
-  app.get("/api/product", controller.get);
-  app.get("/api/product/:id", controller.getById);
-  app.post("/api/product", controller.post);
-  app.delete("/api/product/:id", controller.delete);
-  app.put("/api/product/:id", controller.update);
+  app.get("/api/seller", controller.get);
+  app.get("/api/seller/:id", controller.getById);
+  app.put("/api/seller/:id", controller.update);
+
+  // Seller Auth
+  app.post("/api/seller/login", authcontroller.sellerLogin);
+  app.post("/api/seller/register", authcontroller.sellerRegister);
+  app.put("/api/seller/:id", authcontroller.updateSellerPassword);
 }

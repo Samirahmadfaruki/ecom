@@ -1,4 +1,4 @@
-import config from "../config.js";
+// import jwtto
 import jwt from "jsonwebtoken";
 
 export default class AuthController {

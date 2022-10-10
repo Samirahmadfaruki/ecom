@@ -1,4 +1,4 @@
-import Vendor from "../model/vendor.model.js";
+import Vendor from "../model/vendorDal.js";
 import sql from "./db/db.js";
 
 export default class VendorService {
