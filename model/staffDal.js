@@ -1,53 +1,34 @@
-const sql = require("./db");
+export default class Staff {
+  //Parameterized constructor
+  constructor(
+    id,
+    user_id,
+    firstname,
+    lastname,
+    contact_no,
+    empid,
+    created_at,
+    modified_at
+  ) {
+    this.id = id;
+    this.user_id = user_id;
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.contact_no = contact_no;
+    this.empid = empid;
+    this.created_at = created_at;
+    this.modified_at = modified_at;
 
-exports.getAllStaff = function () {
-  return new Promise((resolve) => {
-    let command = "SELECT * FROM staffs";
-    sql.query(command, (err, rows, field) => {
-      if (err) {
-        console.log(err);
-      } else {
-        resolve(rows);
-      }
-    });
-  });
-};
+    this.table_name = "staffs";
+  }
 
-exports.getById = function (id) {
-  return new Promise((resolve) => {
-    let command = `SELECT * FROM staffs WHERE id="${id}"`;
-    sql.query(command, (err, rows, fields) => {
-      if (err) {
-        console.log("Error:", err);
-      }
-      resolve(rows);
-    });
-  });
-};
-
-exports.remove = function (id) {
-  return new Promise((resolve) => {
-    let command = `DELETE FROM staffs Where id="${id}"`;
-    sql.query(command, (err, rows, fields) => {
-      if (err) {
-        console.log(err);
-      } else {
-        resolve("Deleted!");
-      }
-    });
-  });
-};
-
-exports.update = function (id, data) {
-  return new Promise((resolve) => {
-    let timeStamp = new Date().toISOString().slice(0, 19).replace("T", " ");
-    let command = `UPDATE staffs SET contact_no="${data.contact_no}", modified_at="${timeStamp}" WHERE id="${id}"`;
-    sql.query(command, (err, rows, fields) => {
-      if (err) {
-        resolve("Failed to update.");
-      } else {
-        resolve("Updated!");
-      }
-    });
-  });
-};
+  display() {
+    console.log(`Id= ${this.id}`);
+    console.log(`User Id= ${this.user_id}`);
+    console.log(`First Name= ${this.firstname}`);
+    console.log(`Last Name= ${this.lastname}`);
+    console.log(`Mobile= ${this.contact_no}`);
+    console.log(`Emp Id= ${this.empid}`);
+    console.log(`Created At= ${this.created_at}`);
+  }
+}

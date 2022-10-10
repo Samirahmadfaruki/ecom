@@ -1,53 +1,21 @@
-const sql = require("./db");
+export default class Vendor {
+  //Parameterized constructor
+  constructor(id, user_id, name, contact_no, created_at, modified_at) {
+    this.id = id;
+    this.user_id = user_id;
+    this.name = name;
+    this.contact_no = contact_no;
+    this.created_at = created_at;
+    this.modified_at = modified_at;
 
-exports.getAllVendors = function () {
-  return new Promise((resolve) => {
-    let command = "SELECT * FROM vendors";
-    sql.query(command, (err, rows, field) => {
-      if (err) {
-        console.log(err);
-      } else {
-        resolve(rows);
-      }
-    });
-  });
-};
+    this.table_name = "vendors";
+  }
 
-exports.getById = function (id) {
-  return new Promise((resolve) => {
-    let command = `SELECT * FROM vendors WHERE id="${id}"`;
-    sql.query(command, (err, rows, fields) => {
-      if (err) {
-        console.log("Error:", err);
-      }
-      resolve(rows);
-    });
-  });
-};
-
-exports.remove = function (id) {
-  return new Promise((resolve) => {
-    let command = `DELETE FROM vendors Where id="${id}"`;
-    sql.query(command, (err, rows, fields) => {
-      if (err) {
-        console.log(err);
-      } else {
-        resolve("Deleted!");
-      }
-    });
-  });
-};
-
-exports.update = function (id, data) {
-  return new Promise((resolve) => {
-    let timeStamp = new Date().toISOString().slice(0, 19).replace("T", " ");
-    let command = `UPDATE vendors SET contact_no="${data.contact_no}", modified_at="${timeStamp}" WHERE id="${id}"`;
-    sql.query(command, (err, rows, fields) => {
-      if (err) {
-        resolve("Failed to update.");
-      } else {
-        resolve("Updated!");
-      }
-    });
-  });
-};
+  display() {
+    console.log(`Id= ${this.id}`);
+    console.log(`User Id= ${this.user_id}`);
+    console.log(`Name= ${this.name}`);
+    console.log(`Mobile= ${this.contact_no}`);
+    console.log(`Created At= ${this.created_at}`);
+  }
+}
