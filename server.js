@@ -15,7 +15,7 @@ import categoryroutes from "./routes/categoryroutes.js";
 
 const oneDay = 1000 * 60 * 60 * 24;
 const app = express();
-const PORT = 7000;
+const PORT = 9090;
 app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
