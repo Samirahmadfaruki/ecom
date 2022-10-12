@@ -1,9 +1,9 @@
 import User from "../model/usermodel.js";
 import sql from "./db/db.js";
-import Customer from "../model/customersDal.js";
-import Seller from "../model/sellersDal.js";
-import Vendor from "../model/vendorDal.js";
-import Staff from "../model/staffDal.js";
+import Customer from "../model/customermodel.js";
+import Seller from "../model/sellermodel.js";
+import Vendor from "../model/vendormodel.js";
+import Staff from "../model/staffmodel.js";
 
 import jwt from "jsonwebtoken";
 import secret from "../config.js";

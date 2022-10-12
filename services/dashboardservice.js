@@ -1,10 +1,10 @@
-import Customer from "../model/customersDal.js";
-import Orders from "../model/ordersDal.js";
-import Seller from "../model/sellersDal.js";
-import Product from "../model/productsDal.js";
-import Ordersdata from "../model/ordersDataDal.js";
-import Payments from "../model/paymentsDal.js";
-import Category from "../model/categorytdal.js";
+import Customer from "../model/customermodel.js";
+import Orders from "../model/ordermodel.js";
+import Seller from "../model/sellermodel.js";
+import Product from "../model/productmodel.js";
+import Ordersdata from "../model/orderdatamodel.js";
+import Payments from "../model/paymentmodel.js";
+import Category from "../model/categorymodel.js";
 import Users from "../model/usermodel.js";
 
 import sql from "./db/db.js";

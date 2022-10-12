@@ -1,4 +1,4 @@
-import Feedbacks from "../model/feedbackDal.js";
+import Feedbacks from "../model/feedbackmodel.js";
 import sql from "./db/db.js";
 
 export default class FeedbacksService {

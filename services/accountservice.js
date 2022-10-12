@@ -1,4 +1,4 @@
-import Accounts from "../model/accountdal.js";
+import Accounts from "../model/accounmodel.js";
 import sql from "./db/db.js";
 
 export default class AccountsService {

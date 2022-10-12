@@ -1,4 +1,4 @@
-import Transactions from "../model/transaction.model.js";
+import Transactions from "../model/transactionmodel.js";
 import sql from "./db/db.js";
 
 export default class TransactionService {
